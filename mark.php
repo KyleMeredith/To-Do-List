@@ -6,7 +6,7 @@ if(isset($_GET['as'], $_GET['item'])){
     $as    = $_GET['as'];
     $item  = $_GET['item'];
     
-    switch(){
+    switch($as){
         case 'done':
             $doneQuery = $db->prepare("
                 UPDATE items
