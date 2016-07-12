@@ -1,6 +1,6 @@
 <?php
 
-require_once 'app/init.php';
+require_once ('app/init.php');
 
 if(isset($_GET['as'], $_GET['item'])){
     $as    = $_GET['as'];
