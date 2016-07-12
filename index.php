@@ -5,9 +5,8 @@
     FROM items
     WHERE user = :user
 ");
-	$itemsQuery->execute([    'user' => $_SESSION['user_id']]);
-	$items = $itemsQuery->rowCount() ? $itemsQuery :
-	[];
+	$itemsQuery->execute(['user' => $_SESSION['user_id']]);
+	$items = $itemsQuery->rowCount() ? $itemsQuery : [];
 
 	?>
 <!DOCTYPE html>
@@ -27,7 +26,7 @@
             <ul class="items">
                     <?php  foreach($items as $item): ?>
                     <li>
-                        <span class="item"<?php  echo $item['done'] ? ' done' :''  ?><?php  echo $item['name']; ?></span>
+                        <span class="item<?php  echo $item['done'] ? ' done' :''  ?>"><?php  echo $item['name']; ?></span>
                         <?php  if(!$item['done']): ?>
                             <a href="mark.php?as=done&item=<?php  echo $item['id']; ?>" class="done-button"> Mark as done</a>
                         <?php  endif; ?>
